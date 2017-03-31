@@ -17,7 +17,7 @@ namespace RabbitTest2
 
 		public RabbitKommunikator()
 		{
-			var connectionFactory = new ConnectionFactory { VirtualHost = "PLATTFORM_TEST", HostName = "", UserName = "", Password = "" };
+			var connectionFactory = new ConnectionFactory { VirtualHost = "PLATTFORM_TEST", HostName = "10.1.1.152", UserName = "plattform", Password = "furst" };
 
 			connectionFactory.AutomaticRecoveryEnabled = true;
 			var conn = connectionFactory.CreateConnection();
@@ -43,10 +43,6 @@ namespace RabbitTest2
 			if (e != null)
 			{
 				var props = e.BasicProperties;
-				//var program = Encoding.UTF8.GetString((byte[])props.Headers["Program"]);
-				//var server = Encoding.UTF8.GetString((byte[])props.Headers["Server"]);
-				//var type = Encoding.UTF8.GetString((byte[])props.Headers["QualifiedTypeName"]);
-
 				var data = Encoding.UTF8.GetString(e.Body);
 
 				MessagingCenter.Send(this, "RabbitMeldingMottatt", data);
