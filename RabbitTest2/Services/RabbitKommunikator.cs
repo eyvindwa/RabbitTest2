@@ -11,8 +11,8 @@ namespace RabbitTest2
 {
 	public class RabbitKommunikator : IRabbitKommunikator
 	{
-		String kønavn = "RabbitTest2@BRAINSLUG";
-		IModel channel;
+		readonly string kønavn = "RabbitTest2@BRAINSLUG";
+		readonly IModel channel;
 		EventingBasicConsumer eventingBasicConsumer;
 
 		public RabbitKommunikator()
@@ -38,7 +38,7 @@ namespace RabbitTest2
 			channel.BasicConsume(kønavn, true, eventingBasicConsumer);
 		}
 
-		private void LesIntern(object sender, BasicDeliverEventArgs e)
+		void LesIntern(object sender, BasicDeliverEventArgs e)
 		{
 			if (e != null)
 			{
