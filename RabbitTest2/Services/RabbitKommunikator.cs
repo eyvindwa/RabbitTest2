@@ -17,7 +17,7 @@ namespace RabbitTest2
 
 		public RabbitKommunikator()
 		{
-			var connectionFactory = new ConnectionFactory { VirtualHost = "PLATTFORM_TEST", HostName = "10.1.1.152", UserName = "plattform", Password = "furst" };
+			var connectionFactory = new ConnectionFactory { VirtualHost = "", HostName = "", UserName = "", Password = "" };
 
 			connectionFactory.AutomaticRecoveryEnabled = true;
 			var conn = connectionFactory.CreateConnection();
